@@ -82,7 +82,7 @@ zerops:
         APP_URL: ${zeropsSubdomain}
         # Stderr logging sends output to Zerops runtime log
         # viewer — no log files to manage or rotate.
-        LOG_CHANNEL: stderr
+        LOG_CHANNEL: syslog
         LOG_LEVEL: warning
         # Cross-service references resolve at deploy time.
         # Pattern: ${hostname_varname} maps to the db service's
@@ -148,7 +148,7 @@ zerops:
         APP_URL: ${zeropsSubdomain}
         # Debug-level stderr logging surfaces all framework
         # events in the Zerops log viewer.
-        LOG_CHANNEL: stderr
+        LOG_CHANNEL: syslog
         LOG_LEVEL: debug
         # Same DB wiring as prod — only mode flags differ.
         DB_CONNECTION: pgsql
