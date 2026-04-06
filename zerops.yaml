@@ -41,11 +41,11 @@ zerops:
     # Readiness check gates the traffic switch — new containers
     # must answer HTTP 200 before the L7 balancer routes to them.
     # This enables zero-downtime deploys.
-    deploy:
-      readinessCheck:
-        httpGet:
-          port: 80
-          path: /health
+    # deploy:
+    #   readinessCheck:
+    #     httpGet:
+    #       port: 80
+    #       path: /health
 
     run:
       # php-nginx serves via Nginx + PHP-FPM — no explicit start
@@ -66,10 +66,10 @@ zerops:
         - php artisan view:cache
       # Health check restarts unresponsive containers after the
       # 5-minute retry window expires — keeps production alive.
-      healthCheck:
-        httpGet:
-          port: 80
-          path: /health
+      # healthCheck:
+      #   httpGet:
+      #     port: 80
+      #     path: /health
       envVariables:
         APP_NAME: "Laravel Zerops"
         # Production mode — stack traces hidden, error pages
